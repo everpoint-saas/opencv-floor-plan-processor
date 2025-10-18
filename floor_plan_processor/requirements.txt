@@ -1,0 +1,9 @@
+# Required packages for floor plan processor
+opencv-python>=4.5.0
+opencv-contrib-python>=4.5.0  # For ximgproc module
+numpy>=1.19.0
+PyMuPDF>=1.18.0  # For PDF handling
+easyocr>=1.4.0  # For text detection
+Pillow>=8.0.0  # Required by easyocr
+torch>=1.9.0  # Required by easyocr
+torchvision>=0.10.0  # Required by easyocr
