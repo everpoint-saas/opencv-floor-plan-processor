@@ -36,7 +36,6 @@ opencv_outline/
 
 - Python 3.8+
 - OpenCV
-- Tesseract OCR (for text removal)
 
 ### Install Dependencies
 
@@ -44,23 +43,7 @@ opencv_outline/
 pip install -r requirements.txt
 ```
 
-### Install Tesseract OCR
-
-**Windows**:
-```bash
-# Download from: https://github.com/UB-Mannheim/tesseract/wiki
-# Add to PATH: C:\Program Files\Tesseract-OCR
-```
-
-**macOS**:
-```bash
-brew install tesseract
-```
-
-**Linux**:
-```bash
-sudo apt-get install tesseract-ocr
-```
+EasyOCR will be automatically installed with the dependencies. On first run, it will download the required language models.
 
 ## Usage
 
@@ -161,7 +144,7 @@ Debug images are automatically saved to `debug_room_extraction/` showing:
 Core dependencies (see `requirements.txt`):
 - `opencv-python`: Image processing
 - `numpy`: Numerical operations
-- `pytesseract`: OCR engine
+- `easyocr`: OCR engine (with Korean/English support)
 - `PyMuPDF (fitz)`: PDF rendering
 - `PyQt6`: UI framework (for main_ui.py)
 
