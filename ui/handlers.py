@@ -6,11 +6,11 @@ import numpy as np
 from PySide6.QtWidgets import QFileDialog, QMessageBox, QApplication
 from PySide6.QtGui import QPixmap, QImage
 from PySide6.QtCore import Qt, QThread, Slot
-from geometry_optimizer import GeometryOptimizer
+from core.geometry_optimizer import GeometryOptimizer
 import logging # 로깅 임포트 추가 (만약 없다면)
 
-# main_ui에서 OCRWorker를 가져오기 위함 (현재 코드에서는 직접 사용하지 않음)
-# from main_ui import OCRWorker
+# ui.main_window에서 OCRWorker를 가져오기 위함 (현재 코드에서는 직접 사용하지 않음)
+# from ui.main_window import OCRWorker
 
 class ActionHandlers:
     """
@@ -155,7 +155,7 @@ class ActionHandlers:
         QApplication.processEvents()
 
         try:
-            from main_ui import OCRWorker # 이 부분 확인 필요
+            from ui.main_window import OCRWorker # 이 부분 확인 필요
 
             ocr_langs = self.main_window.tab_manager.get_processing_parameters().get('ocr_langs', ['ko', 'en'])
             self.main_window.preprocessor.set_ocr_languages(ocr_langs)

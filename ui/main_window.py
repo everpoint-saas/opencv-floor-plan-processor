@@ -14,10 +14,10 @@ from PySide6.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
 from PySide6.QtGui import QPixmap, QImage, QAction, QTransform, QCursor
 from PySide6.QtCore import Qt, Slot, Signal, QThread, QObject, QPointF
 
-from ui_tabs import TabManager
-from ui_handlers import ActionHandlers
-from preprocess import Preprocessor
-from functional import ContourExtractor
+from ui.tabs import TabManager
+from ui.handlers import ActionHandlers
+from core.preprocess import Preprocessor
+from core.functional import ContourExtractor
 
 class OCRWorker(QObject):
     """OCR 처리를 위한 워커 스레드"""

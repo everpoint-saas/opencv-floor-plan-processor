@@ -7,10 +7,10 @@ import cv2
 import numpy as np
 import logging
 
-from pdf_loader import PDFLoader
-from image_processor import ImageProcessor
+from core.pdf_loader import PDFLoader
+from core.image_processor import ImageProcessor
 # ocr_handler_inpainting_v1의 OCRHandler를 임포트한다고 가정
-from ocr_handler import OCRHandler 
+from core.ocr_handler import OCRHandler 
 
 
 class Preprocessor:

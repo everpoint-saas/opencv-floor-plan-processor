@@ -15,19 +15,31 @@ Computer vision-based architectural floor plan analysis tool using OpenCV. Autom
 ## Project Structure
 
 ```
-opencv_outline/
-├── floor_plan_processor/    # Core processing library
+opencv-floor-plan-processor/
+├── floor_plan_processor/    # Modern processing library (recommended)
 │   ├── processor.py         # Main processor class
 │   ├── contour_extractor.py # Building outline extraction
 │   ├── room_extractor.py    # Room detection
 │   ├── geometry_optimizer.py # Geometric optimization
 │   ├── text_remover.py      # OCR-based text removal
 │   ├── pdf_handler.py       # PDF rendering
+│   ├── example.py           # Usage examples
 │   └── workflow.json        # Configuration file
-├── main_ui.py              # PyQt UI application
-├── functional.py           # Functional processing pipeline
-├── requirements.txt        # Python dependencies
-└── README.md              # This file
+├── ui/                      # UI components
+│   ├── main_window.py       # Main application window
+│   ├── tabs.py              # Parameter tabs
+│   └── handlers.py          # Event handlers
+├── core/                    # Core processing modules
+│   ├── preprocess.py        # Image preprocessing
+│   ├── functional.py        # Functional pipeline
+│   ├── geometry_optimizer.py
+│   ├── image_processor.py
+│   ├── pdf_loader.py
+│   └── ocr_handler.py
+├── main.py                  # Application entry point
+├── requirements.txt         # Python dependencies
+├── LICENSE                  # MIT License
+└── README.md               # This file
 ```
 
 ## Installation
@@ -47,10 +59,10 @@ EasyOCR will be automatically installed with the dependencies. On first run, it 
 
 ## Usage
 
-### 1. Using the UI Application
+### 1. Using the GUI Application
 
 ```bash
-python main_ui.py
+python main.py
 ```
 
 Features:
@@ -60,7 +72,7 @@ Features:
 - Visualize results in real-time
 - Export processed data
 
-### 2. Using the Library
+### 2. Using the Library (Recommended)
 
 ```python
 from floor_plan_processor import FloorPlanProcessor
@@ -76,17 +88,16 @@ building_outline = results['building_outline']
 rooms = results['optimized_rooms']
 ```
 
-### 3. Functional Processing
+### 3. Using Core Modules Directly
 
 ```python
-from functional import process_floor_plan
+from core.preprocess import Preprocessor
+from core.functional import ContourExtractor
 
-# Simple functional interface
-results = process_floor_plan(
-    pdf_path='floor_plan.pdf',
-    page_number=0,
-    output_dir='output'
-)
+# Use individual components
+preprocessor = Preprocessor()
+preprocessor.load_pdf('floor_plan.pdf')
+image = preprocessor.get_page_image(0)
 ```
 
 ## Configuration
@@ -127,9 +138,11 @@ The processor generates:
 ### Running Tests
 
 ```python
-# Process example file
+# Process your own floor plan file
 python floor_plan_processor/example.py
 ```
+
+Note: Example input files are not included due to IP restrictions. Use your own PDF floor plans for testing.
 
 ### Debug Mode
 

@@ -57,12 +57,9 @@ test_output/
 *.png
 *.jpg
 *.jpeg
-!example_input.png
-!example_output.png
 
 # PDF files (input files - usually large)
 *.pdf
-!example.pdf
 
 # OS files
 .DS_Store

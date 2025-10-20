@@ -5,7 +5,7 @@ import sys
 import os
 from PySide6.QtWidgets import QApplication
 from PySide6.QtCore import Qt
-from main_ui import MainWindow
+from ui.main_window import MainWindow
 import logging
 
 # 로깅 설정
